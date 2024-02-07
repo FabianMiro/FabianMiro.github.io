@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="favicon.png">
+    <title>Unentdecktes Österreich II</title>
+</head>
+<body>
+<div class="top">
+    <h1>Unentdecktes Österreich II</h1>
+
+    <button class="darkbtn"onclick="">dark mode</button>
+
+</div>
+   <div class="image-container">
+        
+        <img src="images/image0.png" id="i0" class="fade-in" />
+        <img src="images/image1.jpg" id="i1" class="fade-in" />
+        <img src="images/image2.jpg" id="i2" class="fade-in" />
+        <img src="images/image3.jpg" id="i3" class="fade-in" />
+        <img src="images/image4.jpg" id="i4" class="fade-in" />
+        <img src="images/image5.jpg" id="i5" class="fade-in" />
+        <img src="images/image6.jpg" id="i6" class="fade-in" />
+        <img src="images/image7.jpg" id="i7" class="fade-in" />
+        <img src="images/image8.jpg" id="i8" class="fade-in" />
+        <img src="images/image9.jpg" id="i9" class="fade-in" />
+        <img src="images/image10.jpg" id="i10" class="fade-in" />
+        <img src="images/image11.jpg" id="i11" class="fade-in" />
+        <img src="images/image12.jpg" id="i12" class="fade-in" />
+        <img src="images/image13.jpg" id="i13" class="fade-in" />
+        <img src="images/image14.jpg" id="i14" class="fade-in" />
+        
+        
+        <!-- Füge weitere Bilder hinzu, falls benötigt -->
+    </div>
+
+<div class="right"></div>
+<div class="left"></div>
+<div class="spacer"></div>
+<div class="about"><p class="aboutText">Österreich offenbart sich als ein äußerst attraktives Reiseziel, das eine vielfältige Palette von Natur- und Kulturschätzen für anspruchsvolle Reisende bereithält. Die malerischen Seen, eingebettet in die majestätische Alpenlandschaft, sowie die beeindruckenden Berggipfel bieten nicht nur eine atemberaubende Kulisse, sondern auch zahlreiche Möglichkeiten für Urlaubs- Aktivitäten.Die kulturelle Vielfalt Österreichs manifestiert sich in einer reichen Geschichte und einem Erbe, das von beeindruckender Architektur bis zu herausragender Kunst reicht. Die klassischen Touristenmagneten ziehen zwar viele Besucher an, jedoch hält das Land abseits dieser bekannten Pfade verborgene Schätze bereit. Es sind die weniger frequentierten, aber nicht minder faszinierenden Orte, die wahre Entdecker anlocken.In Österreich verschmilzt Tradition mit Moderne, und diese facettenreiche Symbiose prägt das Erlebnis jedes Reisenden. Wer jenseits des Mainstreams wandelt, wird mit unvergesslichen Momenten belohnt, diese gilt es zu entdecken.</p></div>
+<div class="footer">
+	<script>
+        // JavaScript, um das aktuelle Jahr zu bekommen
+        var currentYear = new Date().getFullYear();
+        
+        // HTML mit dem aktuellen Jahr aktualisieren
+        document.write( '© ' + currentYear + ' fabian miro kessler ');
+    </script>
+        </div>
+
+    
+<script>
+      var currentImageIndex = 0;
+
+	var rightElement = document.querySelector('.right');
+        // Füge einen Event-Listener für das "click"-Ereignis auf dem Bildcontainer hinzu
+        rightElement.addEventListener('click', function() {
+            nextImage();
+        });
+
+        function nextImage() {
+            // Aktuelles Bild ausblenden
+            var currentImage = document.getElementById ('i' + currentImageIndex);
+            currentImage.style.opacity = 0;
+
+            // Nächstes Bild indexieren
+            currentImageIndex = (currentImageIndex + 1) % 13; // Annahme: Es gibt 3 Bilder (image0, image1, image2)
+
+            // Nächstes Bild einblenden
+            var nextImage = document.getElementById ('i' + currentImageIndex);
+            nextImage.style.opacity = 1;
+        }
+
+	var leftElement = document.querySelector('.left');
+        // Füge einen Event-Listener für das "click"-Ereignis auf dem Bildcontainer hinzu
+        leftElement.addEventListener('click', function() {
+            nextImage2();
+        });
+
+        function nextImage2() {
+            // Aktuelles Bild ausblenden
+            var currentImage2 = document.getElementById ('i' + currentImageIndex);
+            currentImage2.style.opacity = 0;
+
+            // Nächstes Bild indexieren
+            currentImageIndex = (currentImageIndex - 1 +13) % 13; // Annahme: Es gibt 3 Bilder (image0, image1, image2)
+
+            // Nächstes Bild einblenden
+            var nextImage2 = document.getElementById ('i' + currentImageIndex);
+            nextImage2.style.opacity = 1;
+        }
+
+      <!--
+	var leftElement = document.querySelector('.left');
+        // Füge einen Event-Listener für das "click"-Ereignis auf dem Bildcontainer hinzu
+        leftElement.addEventListener('click', function() {
+            previousImage();
+        });
+
+        function previousImage() {
+           
+           
+		currentImage.style.opacity = 0;
+
+            currentImageIndex = (currentImageIndex - 1) % 12; // Annahme: Es gibt 3 Bilder (image0, image1, image2)
+
+		nextImage.style.opacity = 1;
+            
+
+         -->   
+        }
+
+</script>
+
+<!--
+
+// Select the button
+	const btn = document.querySelector('.darkbtn');
+
+// Listen for a click on the button
+	btn.addEventListener('click', function() {
+  // Then toggle (add/remove) the .dark-theme class to the body
+  	document.body.classList.toggle('dark-theme');  
+	})
+    </script>
+
+-->
+</body>
+    
+<style>
+ 
+    body {
+      margin: 0;
+      padding: 0;
+	height: 200vh;	
+    }
+	body.dark-theme{
+	background-color: #111111}
+	
+	.top{
+	width: 100%;
+	height: 6vh;}
+
+    h1 {
+        font-family: Helvetica;
+        font-size: 2em;
+        margin: .5em;
+        position: absolute;
+width: 70%;
+float: left;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        color: white;
+        text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
+    }
+
+
+.darkbtn{
+float: right;
+margin:  2em;
+
+}
+
+    .image-container {
+       	 position: absolute;
+		 z-index: 0;
+       	 width: 100%;
+       	 height: 100vh;
+
+        
+        
+         /* Füge einen Mauszeiger hinzu, um anzuzeigen, dass das Bild klickbar ist */
+    }
+
+    .fade-in {
+        	position: fixed;
+ 		z-index: 0;
+        	top: 0;
+        	left: 0;
+        	width: 100%;
+        	height: 100vh;
+        	object-fit: cover;
+        	transition: opacity 0.5s ease-in-out;
+
+
+        
+    }
+
+    /* Verstecke alle Bilder außer dem ersten */
+    .image-container img:not(:first-child) {
+        opacity: 0;
+        	
+    
+        
+        
+    }
+
+.left{
+	position: relative;
+	width: 50%;
+	height: 100vh;
+	float: left;
+	z-index: 1;
+	cursor: pointer;
+	background-color: red;
+	opacity: 0;
+	
+	}
+	.right{
+	position: relative;
+	width: 50%;
+	height: 100vh;
+	float: right;
+	
+	z-index: 1;
+	cursor: pointer;
+	background-color: green;
+	opacity: 0;
+	
+	
+
+	z-index: 1;
+	cursor: pointer;
+	}
+	
+	.spacer{
+	min-height: 100vh;
+	width: 100%;
+
+	 
+	
+	}
+	
+	.about{
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	font-family: "Helvetica Neue";
+	color: white;
+	text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
+	 -webkit-backdrop-filter: blur(20px):linear-gradient(to bottom);
+ 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+ 	display: flex;
+    	align-items: center; 
+    	justify-content: center;
+
+}
+	.aboutText{
+	text-align: center;
+	font-size: 3vh;
+	line-height: 5vh;
+	padding: 4vw;
+}
+	
+    .footer{
+        font-family: monospace;
+        align-items: center;
+        color: white;
+        position: fixed;
+        bottom: 0px;
+        padding: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    }
+    
+        
+</style>
+</html>
+<script>window.scrollTo(0, 1190); setTimeout(function() { window.scrollTo(0, 1190); },200)</script>
