@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    	<meta charset="UTF-8">
-   	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#778899">
     <link rel="icon" type="image" href="favicon.png">
     <title>Unentdecktes Österreich II</title>
@@ -10,7 +10,7 @@
 <body>
 <div class="top">
     <h1>Unentdecktes Österreich II</h1>
-  <button class="darkbtn""></button>
+  <button class="darkbtn"></button>
 </div>
 
    <div class="image-container">
@@ -30,7 +30,7 @@
         <img src="images/image12.jpg" id="i12" class="fade-in" />
         <img src="images/image13.jpg" id="i13" class="fade-in" />
         <img src="images/image14.jpg" id="i14" class="fade-in" />
-	<img src="images/image14.jpg" id="i15" class="fade-in" />
+        <img src="images/image14.jpg" id="i15" class="fade-in" />
         
         
         <!-- Füge weitere Bilder hinzu, falls benötigt -->
@@ -38,8 +38,14 @@
 
 <div class="right"></div>
 <div class="left"></div>
-<div class="spacer"></div>
-<div class="about"><p class="aboutText">Österreich offenbart sich als ein äußerst attraktives Reiseziel, das eine vielfältige Palette von Natur- und Kulturschätzen für anspruchsvolle Reisende bereithält. Die malerischen Seen, eingebettet in die majestätische Alpenlandschaft, sowie die beeindruckenden Berggipfel bieten nicht nur eine atemberaubende Kulisse, sondern auch zahlreiche Möglichkeiten für Urlaubs- Aktivitäten.Die kulturelle Vielfalt Österreichs manifestiert sich in einer reichen Geschichte und einem Erbe, das von beeindruckender Architektur bis zu herausragender Kunst reicht. Die klassischen Touristenmagneten ziehen zwar viele Besucher an, jedoch hält das Land abseits dieser bekannten Pfade verborgene Schätze bereit. Es sind die weniger frequentierten, aber nicht minder faszinierenden Orte, die wahre Entdecker anlocken.In Österreich verschmilzt Tradition mit Moderne, und diese facettenreiche Symbiose prägt das Erlebnis jedes Reisenden. Wer jenseits des Mainstreams wandelt, wird mit unvergesslichen Momenten belohnt, diese gilt es zu entdecken.</p></div>
+<div class="transition"></div>
+<div class="about">
+<div class="aboutBackground"></div>
+<p class="aboutText">Österreich offenbart sich als ein äußerst attraktives Reiseziel, das eine vielfältige Palette von Natur- und Kulturschätzen für anspruchsvolle Reisende bereithält. Die malerischen Seen, eingebettet in die majestätische Alpenlandschaft, sowie die beeindruckenden Berggipfel bieten nicht nur eine atemberaubende Kulisse, sondern auch zahlreiche Möglichkeiten für Urlaubs- Aktivitäten.
+
+Die kulturelle Vielfalt Österreichs manifestiert sich in einer reichen Geschichte und einem Erbe, das von beeindruckender Architektur bis zu herausragender Kunst reicht. Die klassischen Touristenmagneten ziehen zwar viele Besucher an, jedoch hält das Land abseits dieser bekannten Pfade verborgene Schätze bereit. Es sind die weniger frequentierten, aber nicht minder faszinierenden Orte, die wahre Entdecker anlocken.
+In Österreich verschmilzt Tradition mit Moderne, und diese facettenreiche Symbiose prägt das Erlebnis jedes Reisenden. Wer jenseits des Mainstreams wandelt, wird mit unvergesslichen Momenten belohnt, diese gilt es zu entdecken.</p></div>
+
 
 <div class="footer">
 	<script>
@@ -96,17 +102,31 @@
 
 </script>
 <script>
-const btn = document.querySelector('.darkbtn');
+    
+function isDarkModeEnabled() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+}
 
-btn.addEventListener("click", function() {
-  // Then toggle (add/remove) the .darkMode class to the body
-document.body.classList.toggle("darkMode");
-document.querySelector('h1').classList.toggle("darkMode");
-document.querySelector('.about').classList.toggle("darkMode");
-document.querySelector('.footer').classList.toggle("darkMode");
+function toggleDarkMode() {
+    document.body.classList.toggle("darkMode");
+    document.querySelector('h1').classList.toggle("darkMode");
+    document.querySelector('.aboutText').classList.toggle("darkMode");
+    document.querySelector('.footer').classList.toggle("darkMode");
+    document.querySelector('.aboutBackground').classList.toggle("darkMode");
+    document.querySelector('.darkbtn').classList.toggle("darkMode");
+    
+}
 
-});
-	
+if (isDarkModeEnabled()){
+    toggleDarkMode();
+}
+
+
+var btn = document.querySelector('.darkbtn');
+
+btn.addEventListener("click", toggleDarkMode);
+
+
 </script>
 
 
@@ -115,25 +135,21 @@ document.querySelector('.footer').classList.toggle("darkMode");
 <style>
  
 body {
-      margin: 0;
-      padding: 0;
+    margin: 0;
+    padding: 0;
 	height: 200vh;
-	
-	
     }
 body.darkMode{
 	background-color: #1e1e1e;
 	color: black;}
 	
-.top{
+.top {
 	position: fixed;
 	z-index: 5;
 	width: 100%;
-	
-	
 	}
 	
-	.top.darkMode{
+.top.darkMode{
 	color: Black;
 	}
 	
@@ -153,13 +169,26 @@ h1 {
 	text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
     }
 h1.darkMode{
-	color: #2e2f2f;
-	text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
+    /* color: #2e2f2f;
+	text-shadow: 0px 0px 30px white;*/
 }
 
 .darkbtn{
+    background-image: url('lghtsymbol.png');
+    background-size: contain;
+    position:relative;
+    width:30px;
+    height:30px;
 	float: right;
 	margin:  2em;
+    border: none;
+    background-color: transparent;
+    padding:0;
+    cursor: pointer;
+    }
+    
+.darkbtn.darkMode{
+    background-image: url('drksymbol.png');
 }
 
 .image-container {
@@ -208,35 +237,63 @@ position: relative;
 
 }
 	
-.spacer{
-	min-height: 100vh;
-	width: 100%;
+/*.transition{
+    display: flex;
+    position: relative;
+    z-index: 3;
+	height: 200px;
+    width: 100%;
+    
+    -webkit-mask: linear-gradient(to bottom, transparent, black 35%);
+    -webkit-backdrop-filter: blur(20px);
+}*/
+.about{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    
 }
 	
-.about{
-	position: relative;
-	min-height: 100vh;
-	width: 100%;
-	font-family: "Helvetica Neue";
-	color: white;
-	text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
-	 -webkit-backdrop-filter: blur(20px):linear-gradient(to bottom);
- 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(119, 136, 153,1));
- 	display: flex;
-    	align-items: center; 
-    	justify-content: center;
-
+.aboutBackground{
+    position: relative;
+    height: 150vh;
+    width: 100%;
+    -webkit-mask : linear-gradient(to bottom, transparent , black 10%);
+    -webkit-backdrop-filter: blur(20px);
+ 	
+}
+.aboutBackground.darkMode{
+    -webkit-mask: linear-gradient(to bottom, transparent, black 35%);
+    -webkit-backdrop-filter: blur(20px);
+    background-image: linear-gradient(to bottom, black 0%, #1e1e1e 100%);
+   
 }
 
-.about.darkMode{
-	color:  #2e2f2f;
-}
 
 .aboutText{
+    max-height: 160%;
+    
+    position: absolute;
+    z-index: 5;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 	text-align: center;
-	font-size: 3vh;
+	font-size: 200%;
 	line-height: 5vh;
+    font-family: "Helvetica Neue";
+    color: white;
+    text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
 	padding: 4vw;
+    mask: none;
+}
+.aboutText.darkMode{
+    <!--color: #424242;
+    text-shadow: 0px 0px 40px white;-->
 }
 	
 .footer{
@@ -250,6 +307,7 @@ position: relative;
      display: flex;
      justify-content: center;
      text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+     z-index: 3;
 }
 
 .footer.darkMode{
