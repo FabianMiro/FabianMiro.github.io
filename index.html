@@ -11,6 +11,7 @@
 <div class="top">
     <h1>Unentdecktes Österreich II</h1>
   <button class="darkbtn"></button>
+<button class="aboutButton">About</button>
 </div>
 
    <div class="image-container">
@@ -31,6 +32,9 @@
         <img src="images/image13.jpg" id="i13" class="fade-in" />
         <img src="images/image14.jpg" id="i14" class="fade-in" />
         <img src="images/image14.jpg" id="i15" class="fade-in" />
+<img src="images/image15.jpg" id="i15" class="fade-in" />
+<img src="images/image16.jpg" id="i15" class="fade-in" />
+<img src="images/image17.jpg" id="i15" class="fade-in" />
         
         
         <!-- Füge weitere Bilder hinzu, falls benötigt -->
@@ -38,13 +42,16 @@
 
 <div class="right"></div>
 <div class="left"></div>
-<div class="transition"></div>
+
+
 <div class="about">
-<div class="aboutBackground"></div>
-<p class="aboutText">Österreich offenbart sich als ein äußerst attraktives Reiseziel, das eine vielfältige Palette von Natur- und Kulturschätzen für anspruchsvolle Reisende bereithält. Die malerischen Seen, eingebettet in die majestätische Alpenlandschaft, sowie die beeindruckenden Berggipfel bieten nicht nur eine atemberaubende Kulisse, sondern auch zahlreiche Möglichkeiten für Urlaubs- Aktivitäten.
+    <div class="aboutBackground"></div>
+    <p class="aboutText">Österreich offenbart sich als ein äußerst attraktives Reiseziel, das eine vielfältige Palette von Natur- und Kulturschätzen für anspruchsvolle Reisende bereithält. Die malerischen Seen, eingebettet in die majestätische Alpenlandschaft, sowie die beeindruckenden Berggipfel bieten nicht nur eine atemberaubende Kulisse, sondern auch zahlreiche Möglichkeiten für Urlaubs- Aktivitäten.
 
 Die kulturelle Vielfalt Österreichs manifestiert sich in einer reichen Geschichte und einem Erbe, das von beeindruckender Architektur bis zu herausragender Kunst reicht. Die klassischen Touristenmagneten ziehen zwar viele Besucher an, jedoch hält das Land abseits dieser bekannten Pfade verborgene Schätze bereit. Es sind die weniger frequentierten, aber nicht minder faszinierenden Orte, die wahre Entdecker anlocken.
-In Österreich verschmilzt Tradition mit Moderne, und diese facettenreiche Symbiose prägt das Erlebnis jedes Reisenden. Wer jenseits des Mainstreams wandelt, wird mit unvergesslichen Momenten belohnt, diese gilt es zu entdecken.</p></div>
+In Österreich verschmilzt Tradition mit Moderne, und diese facettenreiche Symbiose prägt das Erlebnis jedes Reisenden. Wer jenseits des Mainstreams wandelt, wird mit unvergesslichen Momenten belohnt, diese gilt es zu entdecken.</p>
+</div>
+
 
 
 <div class="footer">
@@ -112,8 +119,9 @@ function toggleDarkMode() {
     document.querySelector('h1').classList.toggle("darkMode");
     document.querySelector('.aboutText').classList.toggle("darkMode");
     document.querySelector('.footer').classList.toggle("darkMode");
-    document.querySelector('.aboutBackground').classList.toggle("darkMode");
+    document.querySelector('.about').classList.toggle("darkMode");
     document.querySelector('.darkbtn').classList.toggle("darkMode");
+document.querySelector('.aboutButton').classList.toggle("darkMode");
     
 }
 
@@ -128,6 +136,26 @@ btn.addEventListener("click", toggleDarkMode);
 
 
 </script>
+<script>
+var about = 		document.querySelector('.about');
+var aboutButton = 	document.querySelector('.aboutButton');
+var aboutExit = document.querySelector('.about');
+
+
+aboutButton.addEventListener("click", function () {
+    toggleAbout();
+});
+
+aboutExit.addEventListener("click", function () {
+    toggleAbout();
+});
+
+function toggleAbout() {
+    about.classList.toggle('visible');
+}
+
+
+</script>
 
 
 </body>
@@ -137,7 +165,7 @@ btn.addEventListener("click", toggleDarkMode);
 body {
     margin: 0;
     padding: 0;
-	height: 200vh;
+	height: 100vh;
     }
 body.darkMode{
 	background-color: #1e1e1e;
@@ -147,14 +175,15 @@ body.darkMode{
 	position: fixed;
 	z-index: 5;
 	width: 100%;
+	
+	 
+
 	}
 	
 .top.darkMode{
 	color: Black;
 	}
 	
-	
-
 h1 {
 	font-family: Helvetica;
 	font-size: 2em;
@@ -165,12 +194,13 @@ h1 {
 	z-index: 2;
 	top: 0;
 	left: 0;
-	color: white;
+	color: #D5D5D5;
 	text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
+	
     }
 h1.darkMode{
-    /* color: #2e2f2f;
-	text-shadow: 0px 0px 30px white;*/
+     color: #2e2f2f;
+	/*text-shadow: 0px 0px 30px white;*/
 }
 
 .darkbtn{
@@ -180,7 +210,8 @@ h1.darkMode{
     width:30px;
     height:30px;
 	float: right;
-	margin:  2em;
+	margin-top:  2em;
+	margin-right:  2em;
     border: none;
     background-color: transparent;
     padding:0;
@@ -190,6 +221,30 @@ h1.darkMode{
 .darkbtn.darkMode{
     background-image: url('drksymbol.png');
 }
+
+	.aboutButton{
+	font-family: Helvetica-Bold;
+	font-size: 2em;
+	margin: .5em;
+	position: relative;
+	padding-left: 10px;
+	
+	float: right;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	color: #D5D5D5;
+	/*background-color: green;*/
+	text-align: right;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	text-shadow: 5px 5px 50px rgba(0, 0, 0, 0);
+}
+
+.aboutButton.darkMode{
+	color: #2E2F2F;
+	}
 
 .image-container {
        	 position: absolute;
@@ -248,34 +303,54 @@ position: relative;
     -webkit-backdrop-filter: blur(20px);
 }*/
 .about{
-    position: relative;
+    position: absolute;
     min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
+ opacity: 0; /* Initially set to transparent */  
+   position: absolute;
+    height: 100vh;
+    width: 100%;
+    -webkit-backdrop-filter: blur(20px);
+
     
 }
-	
-.aboutBackground{
-    position: relative;
-    height: 150vh;
+.about.visible {   
+position: absolute;
+    min-height: 100vh;
     width: 100%;
-    -webkit-mask : linear-gradient(to bottom, transparent , black 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+   opacity: 1;         
+   position: absolute;
+    height: 100vh;
+    width: 100%;
     -webkit-backdrop-filter: blur(20px);
- 	
-}
-.aboutBackground.darkMode{
-    -webkit-mask: linear-gradient(to bottom, transparent, black 35%);
-    -webkit-backdrop-filter: blur(20px);
-    background-image: linear-gradient(to bottom, black 0%, #1e1e1e 100%);
-   
-}
+	}	
+	
+	.about.visible.darkmode {   
+position: absolute;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+   opacity: 1;         
+   position: absolute;
+    height: 100vh;
+    width: 100%;
+    
+	}	
 
 
 .aboutText{
-    max-height: 160%;
+    
     
     position: absolute;
     z-index: 5;
@@ -283,23 +358,27 @@ position: relative;
     display: flex;
     justify-content: center;
 	text-align: center;
-	font-size: 200%;
-	line-height: 5vh;
+	font-size: 3vmin;
+	line-height: 6vmin;
     font-family: "Helvetica Neue";
-    color: white;
+    color: #D5D5D5;
     text-shadow: 5px 5px 50px rgba(0, 0, 0, 1);
-	padding: 4vw;
+padding: 5vh;
+	
+	
     mask: none;
 }
 .aboutText.darkMode{
-    <!--color: #424242;
-    text-shadow: 0px 0px 40px white;-->
+  color: white;
+  /*   text-shadow: 0px 0px 40px white;*/
+
 }
+
 	
 .footer{
      font-family: monospace;
      align-items: center;
-     color: white;
+     color: #D5D5D5;
      position: fixed;
      bottom: 0px;
      padding: 5px;
@@ -307,11 +386,14 @@ position: relative;
      display: flex;
      justify-content: center;
      text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-     z-index: 3;
+     z-index: 6;
+	/*-webkit-mask : linear-gradient(to bottom, transparent , black 40%);
+	 -webkit-backdrop-filter: blur(20px);*/
+	  
 }
 
 .footer.darkMode{
-	color: #2e2f2f;
+	color: #2E2F2F;
 	text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
 }
       
